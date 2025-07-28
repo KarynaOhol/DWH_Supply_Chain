@@ -1,0 +1,127 @@
+/home/karina/PycharmProjects/dataco_dwh_datasets/.venv/bin/python /home/karina/PycharmProjects/dataco_dwh_datasets/croped_souce_files/cropped_files/modified_files/customer_modified_files/geographies_city_updates.py
+Loading customer-modified files...
+✓ OMS file loaded: 25,000 records
+✓ LMS file loaded: 25,000 records
+
+============================================================
+GEOGRAPHY ANALYSIS
+============================================================
+Available geography columns in LMS: ['DestinationCity', 'DestinationState', 'DestinationCountry']
+Total unique geography combinations: 586
+
+Country distribution:
+  EE. UU.: 564 unique city/state combinations
+  Puerto Rico: 22 unique city/state combinations
+
+Top 10 states by unique cities:
+  CA: 151 cities
+  NY: 38 cities
+  TX: 38 cities
+  IL: 30 cities
+  OH: 26 cities
+  NJ: 25 cities
+  PR: 22 cities
+  MI: 21 cities
+  PA: 18 cities
+  GA: 17 cities
+
+Sample geography combinations:
+DestinationCity DestinationState DestinationCountry
+         Caguas               PR        Puerto Rico
+      Tonawanda               NY            EE. UU.
+       Freeport               NY            EE. UU.
+        Salinas               CA            EE. UU.
+      Paramount               CA            EE. UU.
+ Mount Prospect               IL            EE. UU.
+ Rancho Cordova               CA            EE. UU.
+       Billings               MT            EE. UU.
+   Wilkes Barre               PA            EE. UU.
+     Bellflower               CA            EE. UU.
+
+========================================
+CREATING NEW GEOGRAPHY COMBINATIONS
+========================================
+New Geography 1: Franklin, NY, Puerto Rico
+New Geography 2: Georgetown, NC, EE. UU.
+New Geography 3: Lincoln, MD, Puerto Rico
+New Geography 4: Jefferson, AL, Puerto Rico
+New Geography 5: Roosevelt, AR, Puerto Rico
+
+✓ Created 5 new geography combinations
+
+========================================
+ASSIGNING NEW GEOGRAPHIES TO RECORDS
+========================================
+Will assign each new geography to approximately 100 records
+Assigned 'Franklin, NY, Puerto Rico' to 100 records
+Assigned 'Georgetown, NC, EE. UU.' to 100 records
+Assigned 'Lincoln, MD, Puerto Rico' to 100 records
+Assigned 'Jefferson, AL, Puerto Rico' to 100 records
+Assigned 'Roosevelt, AR, Puerto Rico' to 100 records
+
+✓ Total records updated with new geographies: 500
+
+============================================================
+VALIDATING GEOGRAPHY DATA
+============================================================
+Checking for null values in geography columns:
+✓ DestinationCity: No null values
+✓ DestinationState: No null values
+✓ DestinationCountry: No null values
+
+Total unique geography combinations: 591
+Unique country-state combinations: 49
+
+Country-State distribution:
+  Puerto Rico: 5 different states/provinces
+  EE. UU.: 44 different states/provinces
+
+============================================================
+GEOGRAPHY MODIFICATION SUMMARY
+============================================================
+Total unique geography combinations: 591
+Unique City: 562
+Unique State: 45
+Unique Country: 2
+
+Top 10 destinations by shipment volume:
+  Caguas, PR, Puerto Rico: 8,020 shipments
+  Chicago, IL, EE. UU.: 548 shipments
+  Brooklyn, NY, EE. UU.: 505 shipments
+  Los Angeles, CA, EE. UU.: 477 shipments
+  New York, NY, EE. UU.: 295 shipments
+  Philadelphia, PA, EE. UU.: 238 shipments
+  Bronx, NY, EE. UU.: 228 shipments
+  San Diego, CA, EE. UU.: 198 shipments
+  Miami, FL, EE. UU.: 189 shipments
+  Las Vegas, NV, EE. UU.: 169 shipments
+
+Shipment volume by country:
+  EE. UU.: 16,318 shipments
+  Puerto Rico: 8,682 shipments
+
+Top 10 states by shipment volume:
+  PR: 8,284 shipments
+  CA: 4,345 shipments
+  NY: 1,820 shipments
+  TX: 1,311 shipments
+  IL: 1,091 shipments
+  FL: 767 shipments
+  OH: 658 shipments
+  PA: 547 shipments
+  MI: 540 shipments
+  NC: 449 shipments
+
+✓ Geography analysis exported:
+  Geography combinations: geography_analysis/geography_combinations_summary.csv
+  Total combinations exported: 591
+
+✓ Geography-modified files saved:
+  OMS: geography_modified_files/geography_modified_oms_file.csv
+  LMS: geography_modified_files/geography_modified_lms_file.csv
+
+✓ Geography modification completed successfully!
+Added 5 new cities to the dataset with realistic geographic distribution.
+Files with geography changes are ready for incremental load testing.
+
+Process finished with exit code 0

@@ -1,0 +1,143 @@
+/home/karina/PycharmProjects/dataco_dwh_datasets/.venv/bin/python /home/karina/PycharmProjects/dataco_dwh_datasets/croped_souce_files/cropped_files/modified_files/customers_update_insert.py
+Loading modified files...
+✓ OMS file loaded: 25,000 records
+✓ LMS file loaded: 25,000 records
+
+============================================================
+CUSTOMER ANALYSIS
+============================================================
+Available customer columns: ['CustomerID', 'CustomerFirstName', 'CustomerLastName', 'CustomerGender', 'CustomerYearOfBirth', 'CustomerEmail', 'CustomerSegment']
+Total unique customers: 24,289
+Unique customer segments: 3
+Gender distribution:
+  F: 12,709
+  M: 11,580
+Segment distribution:
+  Consumer: 11,363
+  Corporate: 10,680
+  Home Office: 2,246
+Customer ID range: 2 - 20757
+
+========================================
+GENERATING NEW CUSTOMERS
+========================================
+New Customer 20758: Margaret Johnson (F, 1951, Home Office)
+New Customer 20759: Donald Walker (M, 1965, Consumer)
+New Customer 20760: Nancy Rhodes (F, 1997, Consumer)
+New Customer 20761: Stephanie Miller (F, 1987, Corporate)
+New Customer 20762: Jennifer Johnson (F, 1951, Consumer)
+New Customer 20763: Colleen Wagner (F, 1964, Home Office)
+New Customer 20764: Alyssa Gonzalez (F, 1985, Consumer)
+New Customer 20765: Matthew Gardner (M, 1964, Corporate)
+New Customer 20766: Daniel Lawrence (M, 2001, Consumer)
+New Customer 20767: Rhonda Smith (F, 1994, Corporate)
+New Customer 20768: Robert Wolfe (M, 1967, Consumer)
+New Customer 20769: Gina Moore (F, 1998, Corporate)
+New Customer 20770: Tina Rogers (F, 1955, Corporate)
+New Customer 20771: Anna Davis (F, 1972, Corporate)
+New Customer 20772: Ryan Munoz (M, 2001, Consumer)
+New Customer 20773: Robert Blair (M, 1984, Consumer)
+New Customer 20774: Joshua Dudley (M, 1955, Home Office)
+New Customer 20775: James Arnold (M, 2003, Home Office)
+New Customer 20776: Ronald Montgomery (M, 1986, Consumer)
+New Customer 20777: Shannon Ray (F, 1952, Home Office)
+
+✓ Generated 20 new customers
+
+========================================
+REASSIGNING ORDERS TO NEW CUSTOMERS
+========================================
+Will reassign 500 orders to new customers
+
+Reassignment Summary:
+Customer 20769 (Gina Moore): 25 orders reassigned
+Customer 20770 (Tina Rogers): 31 orders reassigned
+Customer 20771 (Anna Davis): 30 orders reassigned
+Customer 20775 (James Arnold): 19 orders reassigned
+Customer 20762 (Jennifer Johnson): 18 orders reassigned
+Customer 20759 (Donald Walker): 27 orders reassigned
+Customer 20772 (Ryan Munoz): 27 orders reassigned
+Customer 20767 (Rhonda Smith): 25 orders reassigned
+Customer 20776 (Ronald Montgomery): 27 orders reassigned
+Customer 20758 (Margaret Johnson): 29 orders reassigned
+Customer 20760 (Nancy Rhodes): 17 orders reassigned
+Customer 20766 (Daniel Lawrence): 27 orders reassigned
+Customer 20761 (Stephanie Miller): 20 orders reassigned
+Customer 20765 (Matthew Gardner): 13 orders reassigned
+Customer 20774 (Joshua Dudley): 16 orders reassigned
+Customer 20764 (Alyssa Gonzalez): 28 orders reassigned
+Customer 20768 (Robert Wolfe): 28 orders reassigned
+Customer 20763 (Colleen Wagner): 35 orders reassigned
+Customer 20773 (Robert Blair): 30 orders reassigned
+Customer 20777 (Shannon Ray): 28 orders reassigned
+
+✓ Successfully reassigned 500 orders to 20 new customers
+
+========================================
+UPDATING EXISTING CUSTOMER EMAILS
+========================================
+Updating emails for 2000 customers...
+✓ Updated emails for 2000 customers
+  OMS records updated: 5,691
+
+Sample email updates:
+  Customer 737 (Lawrence Smith): lawrence.smith.updated@mail.com
+  Customer 2367 (Sean Smith): sean.smith.updated@mail.com
+  Customer 6353 (Mary Rogers): mary.rogers.updated@mail.com
+  Customer 6696 (Mary Spencer): mary.spencer.updated@mail.com
+  Customer 9304 (Janet Smith): janet.smith.updated@mail.com
+
+============================================================
+VALIDATING CUSTOMER CONSISTENCY
+============================================================
+✓ CustomerFirstName is consistent across all records
+✓ CustomerLastName is consistent across all records
+✗ Found 3976 customers with inconsistent CustomerGender:
+  Customer ID 4: ['F' 'M']
+  Customer ID 5: ['F' 'M']
+  Customer ID 6: ['F' 'M']
+  Customer ID 7: ['M' 'F']
+  Customer ID 8: ['F' 'M']
+✗ Found 5178 customers with inconsistent CustomerYearOfBirth:
+  Customer ID 4: [1983 1995 1996 1986]
+  Customer ID 5: [2000 1995]
+  Customer ID 6: [1976 1974 1975 1977 1984 1991]
+  Customer ID 7: [1975 1977 1995]
+  Customer ID 8: [1995 1975 1989 1976 1971]
+✓ CustomerEmail is consistent across all records
+✓ CustomerSegment is consistent across all records
+
+Checking OMS vs LMS CustomerID consistency...
+⚠ 111 customers exist in OMS but not in LMS
+
+============================================================
+CUSTOMER MODIFICATION SUMMARY
+============================================================
+Total unique customers in OMS: 8,653
+Total unique customers in LMS: 8,542
+Customers with updated emails: 2,000
+Records with updated emails: 5,691
+
+Customer segment distribution:
+  Consumer: 4,445 customers
+  Corporate: 3,393 customers
+  Home Office: 815 customers
+
+Gender distribution:
+  F: 6,504 customers
+  M: 6,125 customers
+
+Age distribution:
+  Youngest: 19 years old (born 2006)
+  Oldest: 74 years old (born 1951)
+  Average age: 39.6 years
+
+✓ Customer-modified files saved:
+  OMS: customer_modified_files/customer_modified_oms_file.csv
+  LMS: customer_modified_files/customer_modified_lms_file.csv
+
+✓ Customer modification completed successfully!
+Files with customer changes are ready for incremental load testing.
+⚠ Note: Some inconsistencies were found. Please review the validation output above.
+
+Process finished with exit code 0

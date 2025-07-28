@@ -1,0 +1,27 @@
+===========================================================
+VALIDATING RECORD CORRESPONDENCE
+============================================================
+✓ All required columns found in both files
+Basic Statistics:
+OMS records: 25,000
+LMS records: 25,000
+Unique OMS IDs: 13,513
+Unique LMS IDs: 13,513
+Correspondence Analysis:
+Perfect matches (ID|ProductID|CustomerID): 22,618
+Records only in OMS: 0
+Records only in LMS: 0
+Match percentage: 100.00%
+Detailed Field Analysis:
+ID matches (OrderID=ShipmentID): 13,513 / 13,513
+ProductID matches: 97 / 97
+CustomerID matches: 8,710 / 8,710
+============================================================
+VALIDATION SUMMARY
+============================================================
+✓ EXCELLENT: Records show high correspondence (≥95%)
+Overall match rate: 100.00%
+Perfect matches: 22,618
+Total unique records: 22,618
+✓ Processing completed successfully!
+Cropped files saved and validation completed.

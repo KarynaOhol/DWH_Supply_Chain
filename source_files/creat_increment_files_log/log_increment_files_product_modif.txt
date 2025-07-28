@@ -1,0 +1,292 @@
+/home/karina/PycharmProjects/dataco_dwh_datasets/.venv/bin/python /home/karina/PycharmProjects/dataco_dwh_datasets/croped_souce_files/cropped_files/product_update.py
+Loading cropped files...
+✓ OMS file loaded: 25,000 records
+✓ LMS file loaded: 25,000 records
+
+============================================================
+PRODUCT ANALYSIS
+============================================================
+Total unique products: 97
+Unique product names: 97
+Unique product categories: 42
+
+Product Categories:
+  Electronics: 11 products
+  Kids' Golf Clubs: 8 products
+  Accessories: 6 products
+  Golf Gloves: 6 products
+  Golf Balls: 5 products
+  Girls' Apparel: 4 products
+  Trade-In: 4 products
+  Baseball & Softball: 3 products
+  Boxing & MMA: 3 products
+  Shop By Sport: 3 products
+  Hunting & Shooting: 3 products
+  Hockey: 3 products
+  Strength Training: 3 products
+  Cardio Equipment: 2 products
+  Fitness Accessories: 2 products
+  Lacrosse: 2 products
+  Cleats: 2 products
+  Soccer: 2 products
+  Basketball: 2 products
+  Sporting Goods: 1 products
+  Women's Apparel: 1 products
+  Consumer Electronics: 1 products
+  Computers: 1 products
+  Camping & Hiking: 1 products
+  Cameras : 1 products
+  Men's Footwear: 1 products
+  Children's Clothing: 1 products
+  Tennis & Racquet: 1 products
+  Crafts: 1 products
+  Men's Clothing: 1 products
+  Women's Clothing: 1 products
+  Books : 1 products
+  Fishing: 1 products
+  Baby : 1 products
+  As Seen on  TV!: 1 products
+  CDs : 1 products
+  DVDs: 1 products
+  Garden: 1 products
+  Pet Supplies: 1 products
+  Health and Beauty: 1 products
+  Video Games: 1 products
+  Music: 1 products
+
+Sample products:
+ ProductID                                   ProductName  ProductCategory
+      1360                                  Smart watch    Sporting Goods
+       627 Under Armour Girls' Toddler Spine Surge Runni    Shop By Sport
+       502          Nike Men's Dri-FIT Victory Golf Polo  Women's Apparel
+       249 Under Armour Women's Micro G Skulpt Running S     Boxing & MMA
+       365              Perfect Fitness Perfect Rip Deck           Cleats
+       191             Nike Men's Free 5.0+ Running Shoe Cardio Equipment
+       917 Glove It Women's Mod Oval 3-Zip Carry All Gol         Trade-In
+       828 Bridgestone e6 Straight Distance NFL San Dieg      Electronics
+       642       Columbia Men's PFG Anchor Tough T-Shirt    Shop By Sport
+       818                   Titleist Pro V1x Golf Balls      Electronics
+
+============================================================
+SELECTING PRODUCTS FOR MODIFICATION
+============================================================
+Selected 60 products for name update:
+Product IDs: [np.int64(19), np.int64(24), np.int64(37), np.int64(44), np.int64(58), np.int64(78), np.int64(116), np.int64(127), np.int64(134), np.int64(191), np.int64(203), np.int64(216), np.int64(249), np.int64(251), np.int64(273), np.int64(282), np.int64(295), np.int64(306), np.int64(359), np.int64(364), np.int64(365), np.int64(565), np.int64(607), np.int64(625), np.int64(642), np.int64(773), np.int64(786), np.int64(793), np.int64(804), np.int64(810), np.int64(818), np.int64(821), np.int64(823), np.int64(825), np.int64(828), np.int64(835), np.int64(858), np.int64(860), np.int64(885), np.int64(886), np.int64(905), np.int64(906), np.int64(917), np.int64(924), np.int64(957), np.int64(977), np.int64(981), np.int64(982), np.int64(1347), np.int64(1348), np.int64(1349), np.int64(1350), np.int64(1351), np.int64(1352), np.int64(1353), np.int64(1356), np.int64(1357), np.int64(1360), np.int64(1362), np.int64(1363)]
+
+Selected 5 products for category change:
+  Product ID 258: Current category = Boxing & MMA
+  Product ID 278: Current category = Electronics
+  Product ID 208: Current category = Strength Training
+  Product ID 311: Current category = Kids' Golf Clubs
+  Product ID 792: Current category = Golf Balls
+
+========================================
+APPLYING PRODUCT NAME UPDATES
+========================================
+Product ID 134: 'Nike Women's Legend V-Neck T-Shirt' → 'Nike Women's Legend V-Neck T-Shirt-UPDATED' (152 OMS records)
+  Also updated 152 LMS records
+Product ID 37: 'adidas Kids' F5 Messi FG Soccer Cleat' → 'adidas Kids' F5 Messi FG Soccer Cleat-UPDATED' (53 OMS records)
+  Also updated 53 LMS records
+Product ID 773: 'Titleist Small Wheeled Travel Cover' → 'Titleist Small Wheeled Travel Cover-UPDATED' (28 OMS records)
+  Also updated 28 LMS records
+Product ID 1351: 'Dell Laptop' → 'Dell Laptop-UPDATED' (90 OMS records)
+  Also updated 90 LMS records
+Product ID 364: 'Total Gym 1400' → 'Total Gym 1400-UPDATED' (8 OMS records)
+  Also updated 8 LMS records
+Product ID 19: 'Nike Men's Fingertrap Max Training Shoe' → 'Nike Men's Fingertrap Max Training Shoe-UPDATED' (19 OMS records)
+  Also updated 19 LMS records
+Product ID 1356: 'First aid kit' → 'First aid kit-UPDATED' (58 OMS records)
+  Also updated 58 LMS records
+Product ID 821: 'Titleist Pro V1 High Numbers Personalized Gol' → 'Titleist Pro V1 High Numbers Personalized Gol-UPDATED' (50 OMS records)
+  Also updated 50 LMS records
+Product ID 825: 'Bridgestone e6 Straight Distance NFL Tennesse' → 'Bridgestone e6 Straight Distance NFL Tennesse-UPDATED' (53 OMS records)
+  Also updated 53 LMS records
+Product ID 1360: 'Smart watch ' → 'Smart watch -UPDATED' (178 OMS records)
+  Also updated 178 LMS records
+Product ID 282: 'Under Armour Women's Ignite PIP VI Slide' → 'Under Armour Women's Ignite PIP VI Slide-UPDATED' (74 OMS records)
+  Also updated 74 LMS records
+Product ID 981: 'The North Face Women's Recon Backpack' → 'The North Face Women's Recon Backpack-UPDATED' (11 OMS records)
+  Also updated 11 LMS records
+Product ID 810: 'Glove It Women's Mod Oval Golf Glove' → 'Glove It Women's Mod Oval Golf Glove-UPDATED' (55 OMS records)
+  Also updated 55 LMS records
+Product ID 1353: 'Porcelain crafts' → 'Porcelain crafts-UPDATED' (93 OMS records)
+  Also updated 93 LMS records
+Product ID 1347: 'Baby sweater' → 'Baby sweater-UPDATED' (41 OMS records)
+  Also updated 41 LMS records
+Product ID 365: 'Perfect Fitness Perfect Rip Deck' → 'Perfect Fitness Perfect Rip Deck-UPDATED' (4486 OMS records)
+  Also updated 4486 LMS records
+Product ID 905: 'Team Golf Texas Longhorns Putter Grip' → 'Team Golf Texas Longhorns Putter Grip-UPDATED' (56 OMS records)
+  Also updated 56 LMS records
+Product ID 44: 'adidas Men's F10 Messi TRX FG Soccer Cleat' → 'adidas Men's F10 Messi TRX FG Soccer Cleat-UPDATED' (49 OMS records)
+  Also updated 49 LMS records
+Product ID 786: 'TaylorMade 2014 Purelite Stand Bag' → 'TaylorMade 2014 Purelite Stand Bag-UPDATED' (39 OMS records)
+  Also updated 39 LMS records
+Product ID 982: 'insta-bed Neverflat Air Mattress' → 'insta-bed Neverflat Air Mattress-UPDATED' (11 OMS records)
+  Also updated 11 LMS records
+Product ID 58: 'Diamondback Boys' Insight 24 Performance Hybr' → 'Diamondback Boys' Insight 24 Performance Hybr-UPDATED' (7 OMS records)
+  Also updated 7 LMS records
+Product ID 127: 'Stiga Master Series ST3100 Competition Indoor' → 'Stiga Master Series ST3100 Competition Indoor-UPDATED' (19 OMS records)
+  Also updated 19 LMS records
+Product ID 1362: 'Fighting video games' → 'Fighting video games-UPDATED' (130 OMS records)
+  Also updated 130 LMS records
+Product ID 957: 'Diamondback Women's Serene Classic Comfort Bi' → 'Diamondback Women's Serene Classic Comfort Bi-UPDATED' (2450 OMS records)
+  Also updated 2450 LMS records
+Product ID 565: 'adidas Youth Germany Black/Red Away Match Soc' → 'adidas Youth Germany Black/Red Away Match Soc-UPDATED' (63 OMS records)
+  Also updated 63 LMS records
+Product ID 804: 'Glove It Women's Imperial Golf Glove' → 'Glove It Women's Imperial Golf Glove-UPDATED' (57 OMS records)
+  Also updated 57 LMS records
+Product ID 818: 'Titleist Pro V1x Golf Balls' → 'Titleist Pro V1x Golf Balls-UPDATED' (47 OMS records)
+  Also updated 47 LMS records
+Product ID 78: 'Nike Kids' Grade School KD VI Basketball Shoe' → 'Nike Kids' Grade School KD VI Basketball Shoe-UPDATED' (13 OMS records)
+  Also updated 13 LMS records
+Product ID 977: 'ENO Atlas Hammock Straps' → 'ENO Atlas Hammock Straps-UPDATED' (58 OMS records)
+  Also updated 58 LMS records
+Product ID 607: 'Garmin Approach S3 Golf GPS Watch' → 'Garmin Approach S3 Golf GPS Watch-UPDATED' (14 OMS records)
+  Also updated 14 LMS records
+Product ID 203: 'GoPro HERO3+ Black Edition Camera' → 'GoPro HERO3+ Black Edition Camera-UPDATED' (5 OMS records)
+  Also updated 5 LMS records
+Product ID 273: 'Under Armour Kids' Mercenary Slide' → 'Under Armour Kids' Mercenary Slide-UPDATED' (52 OMS records)
+  Also updated 52 LMS records
+Product ID 906: 'Team Golf Tennessee Volunteers Putter Grip' → 'Team Golf Tennessee Volunteers Putter Grip-UPDATED' (54 OMS records)
+  Also updated 54 LMS records
+Product ID 793: 'Hirzl Women's Hybrid Golf Glove' → 'Hirzl Women's Hybrid Golf Glove-UPDATED' (157 OMS records)
+  Also updated 157 LMS records
+Product ID 191: 'Nike Men's Free 5.0+ Running Shoe' → 'Nike Men's Free 5.0+ Running Shoe-UPDATED' (2215 OMS records)
+  Also updated 2215 LMS records
+Product ID 886: 'Team Golf San Francisco Giants Putter Grip' → 'Team Golf San Francisco Giants Putter Grip-UPDATED' (55 OMS records)
+  Also updated 55 LMS records
+Product ID 295: 'Fitbit The One Wireless Activity & Sleep Trac' → 'Fitbit The One Wireless Activity & Sleep Trac-UPDATED' (19 OMS records)
+  Also updated 19 LMS records
+Product ID 116: 'Nike Men's Comfort 2 Slide' → 'Nike Men's Comfort 2 Slide-UPDATED' (69 OMS records)
+  Also updated 69 LMS records
+Product ID 1352: 'Industrial consumer electronics' → 'Industrial consumer electronics-UPDATED' (80 OMS records)
+  Also updated 80 LMS records
+Product ID 860: 'Bushnell Pro X7 Jolt Slope Rangefinder' → 'Bushnell Pro X7 Jolt Slope Rangefinder-UPDATED' (2 OMS records)
+  Also updated 2 LMS records
+Product ID 924: 'Glove It Urban Brick Golf Towel' → 'Glove It Urban Brick Golf Towel-UPDATED' (66 OMS records)
+  Also updated 66 LMS records
+Product ID 828: 'Bridgestone e6 Straight Distance NFL San Dieg' → 'Bridgestone e6 Straight Distance NFL San Dieg-UPDATED' (47 OMS records)
+  Also updated 47 LMS records
+Product ID 359: 'Nike Men's Free TR 5.0 TB Training Shoe' → 'Nike Men's Free TR 5.0 TB Training Shoe-UPDATED' (13 OMS records)
+  Also updated 13 LMS records
+Product ID 1357: 'Men's gala suit' → 'Men's gala suit-UPDATED' (34 OMS records)
+  Also updated 34 LMS records
+Product ID 24: 'Elevation Training Mask 2.0' → 'Elevation Training Mask 2.0-UPDATED' (19 OMS records)
+  Also updated 19 LMS records
+Product ID 306: 'Polar FT4 Heart Rate Monitor' → 'Polar FT4 Heart Rate Monitor-UPDATED' (9 OMS records)
+  Also updated 9 LMS records
+Product ID 1363: 'Summer dresses' → 'Summer dresses-UPDATED' (111 OMS records)
+  Also updated 111 LMS records
+Product ID 1348: 'CDs of rock' → 'CDs of rock-UPDATED' (50 OMS records)
+  Also updated 50 LMS records
+Product ID 251: 'Brooks Women's Ghost 6 Running Shoe' → 'Brooks Women's Ghost 6 Running Shoe-UPDATED' (11 OMS records)
+  Also updated 11 LMS records
+Product ID 885: 'Team Golf St. Louis Cardinals Putter Grip' → 'Team Golf St. Louis Cardinals Putter Grip-UPDATED' (56 OMS records)
+  Also updated 56 LMS records
+Product ID 249: 'Under Armour Women's Micro G Skulpt Running S' → 'Under Armour Women's Micro G Skulpt Running S-UPDATED' (40 OMS records)
+  Also updated 40 LMS records
+Product ID 1349: 'Web Camera' → 'Web Camera-UPDATED' (116 OMS records)
+  Also updated 116 LMS records
+Product ID 1350: 'Children's heaters' → 'Children's heaters-UPDATED' (126 OMS records)
+  Also updated 126 LMS records
+Product ID 642: 'Columbia Men's PFG Anchor Tough T-Shirt' → 'Columbia Men's PFG Anchor Tough T-Shirt-UPDATED' (53 OMS records)
+  Also updated 53 LMS records
+Product ID 858: 'GolfBuddy VT3 GPS Watch' → 'GolfBuddy VT3 GPS Watch-UPDATED' (8 OMS records)
+  Also updated 8 LMS records
+Product ID 917: 'Glove It Women's Mod Oval 3-Zip Carry All Gol' → 'Glove It Women's Mod Oval 3-Zip Carry All Gol-UPDATED' (53 OMS records)
+  Also updated 53 LMS records
+Product ID 216: 'Yakima DoubleDown Ace Hitch Mount 4-Bike Rack' → 'Yakima DoubleDown Ace Hitch Mount 4-Bike Rack-UPDATED' (13 OMS records)
+  Also updated 13 LMS records
+Product ID 835: 'Bridgestone e6 Straight Distance NFL Carolina' → 'Bridgestone e6 Straight Distance NFL Carolina-UPDATED' (42 OMS records)
+  Also updated 42 LMS records
+Product ID 625: 'Nike Men's Kobe IX Elite Low Basketball Shoe' → 'Nike Men's Kobe IX Elite Low Basketball Shoe-UPDATED' (14 OMS records)
+  Also updated 14 LMS records
+Product ID 823: 'Titleist Pro V1x High Numbers Personalized Go' → 'Titleist Pro V1x High Numbers Personalized Go-UPDATED' (59 OMS records)
+  Also updated 59 LMS records
+
+✓ Product name updates completed: 12110 total record updates
+
+========================================
+APPLYING CATEGORY CHANGES
+========================================
+Product ID 258: 'Boxing & MMA' → 'Music' (12 OMS records)
+Product ID 278: 'Electronics' → 'Boxing & MMA' (56 OMS records)
+Product ID 208: 'Strength Training' → 'Kids' Golf Clubs' (1 OMS records)
+Product ID 311: 'Kids' Golf Clubs' → 'Basketball' (5 OMS records)
+Product ID 792: 'Golf Balls' → 'Cleats' (137 OMS records)
+
+✓ Category changes completed: 211 total record updates
+
+============================================================
+VALIDATING DATA CONSISTENCY
+============================================================
+✓ Product names are consistent across all records
+✓ Product categories are consistent across all records
+✗ Found 1 categories with multiple IDs
+
+============================================================
+MODIFICATION SUMMARY REPORT
+============================================================
+Products with updated names: 60
+Total records with updated names: 12,110
+
+Final category distribution:
+  Cleats: 3 products, 4,631 records
+  Men's Footwear: 1 products, 3,965 records
+  Women's Apparel: 1 products, 3,858 records
+  Camping & Hiking: 1 products, 2,450 records
+  Cardio Equipment: 2 products, 2,265 records
+  Shop By Sport: 3 products, 2,030 records
+  Fishing: 1 products, 1,137 records
+  Electronics: 10 products, 525 records
+  Golf Gloves: 6 products, 504 records
+  Golf Balls: 4 products, 368 records
+  Accessories: 6 products, 333 records
+  Hockey: 3 products, 331 records
+  Girls' Apparel: 4 products, 224 records
+  Trade-In: 4 products, 187 records
+  Sporting Goods: 1 products, 178 records
+  Video Games: 1 products, 130 records
+  Children's Clothing: 1 products, 126 records
+  Cameras : 1 products, 116 records
+  Baseball & Softball: 3 products, 114 records
+  Women's Clothing: 1 products, 111 records
+  Boxing & MMA: 3 products, 107 records
+  Pet Supplies: 1 products, 99 records
+  Music: 2 products, 94 records
+  Crafts: 1 products, 93 records
+  DVDs: 1 products, 93 records
+  Garden: 1 products, 91 records
+  Computers: 1 products, 90 records
+  Hunting & Shooting: 3 products, 80 records
+  Consumer Electronics: 1 products, 80 records
+  Books : 1 products, 73 records
+  Tennis & Racquet: 1 products, 69 records
+  Lacrosse: 2 products, 62 records
+  Kids' Golf Clubs: 8 products, 61 records
+  Health and Beauty: 1 products, 58 records
+  Fitness Accessories: 2 products, 55 records
+  CDs : 1 products, 50 records
+  Baby : 1 products, 41 records
+  Soccer: 2 products, 38 records
+  Men's Clothing: 1 products, 34 records
+  Basketball: 3 products, 18 records
+  Strength Training: 2 products, 18 records
+  As Seen on  TV!: 1 products, 13 records
+
+Sample of modified records:
+ ProductID                                           ProductName  ProductCategory
+      1360                                  Smart watch -UPDATED   Sporting Goods
+       249 Under Armour Women's Micro G Skulpt Running S-UPDATED     Boxing & MMA
+       365              Perfect Fitness Perfect Rip Deck-UPDATED           Cleats
+       191             Nike Men's Free 5.0+ Running Shoe-UPDATED Cardio Equipment
+       917 Glove It Women's Mod Oval 3-Zip Carry All Gol-UPDATED         Trade-In
+
+✓ Modified files saved:
+  OMS: modified_files/modified_oms_file.csv
+  LMS: modified_files/modified_lms_file.csv
+
+✓ Data modification completed successfully!
+Modified files are ready for testing incremental load processes.
+
+Process finished with exit code 0
