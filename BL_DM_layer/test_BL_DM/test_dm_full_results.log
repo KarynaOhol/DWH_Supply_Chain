@@ -1,0 +1,91 @@
+dwh_dev_pgsql.public> CALL BL_CL.load_bl_dm_full(TRUE)
+PHASE 1: Starting DM dimension loading from 3NF...
+MASTER DIMENSION LOAD SUMMARY:
+Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+Overall Status: SUCCESS, Total Execution Time: 0 ms
+PHASE 1: DM dimension loading completed successfully
+PHASE 3: Starting partitioned fact loading...
+Processing incremental load since: 1900-01-01 00:00:00
+Data date range: 2023-06-13 to 2025-06-11
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202306 for dates 2023-06-01 to 2023-07-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202306
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202307 for dates 2023-07-01 to 2023-08-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202307
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202308 for dates 2023-08-01 to 2023-09-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202308
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202309 for dates 2023-09-01 to 2023-10-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202309
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202310 for dates 2023-10-01 to 2023-11-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202310
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202311 for dates 2023-11-01 to 2023-12-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202311
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202312 for dates 2023-12-01 to 2024-01-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202312
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202401 for dates 2024-01-01 to 2024-02-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202401
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202402 for dates 2024-02-01 to 2024-03-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202402
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202403 for dates 2024-03-01 to 2024-04-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202403
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202404 for dates 2024-04-01 to 2024-05-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202404
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202405 for dates 2024-05-01 to 2024-06-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202405
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202406 for dates 2024-06-01 to 2024-07-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202406
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202407 for dates 2024-07-01 to 2024-08-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202407
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202408 for dates 2024-08-01 to 2024-09-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202408
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202409 for dates 2024-09-01 to 2024-10-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202409
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202410 for dates 2024-10-01 to 2024-11-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202410
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202411 for dates 2024-11-01 to 2024-12-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202411
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202412 for dates 2024-12-01 to 2025-01-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202412
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202501 for dates 2025-01-01 to 2025-02-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202501
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202502 for dates 2025-02-01 to 2025-03-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202502
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202503 for dates 2025-03-01 to 2025-04-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202503
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202504 for dates 2025-04-01 to 2025-05-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202504
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202505 for dates 2025-05-01 to 2025-06-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202505
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202506 for dates 2025-06-01 to 2025-07-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202506
+Deleted 0 existing fact records
+Inserted 500392 new fact records
+Rolling window cutoff date: 2025-04-01
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202501 (date: 2025-01-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202502 (date: 2025-02-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202503 (date: 2025-03-01)
+FACT LOAD COMPLETED: 0 deleted, 500392 inserted, 500392 total business records in 0 ms
+PHASE 3: Partitioned fact loading completed successfully
+COMPLETE DM ETL SUCCESS: All dimensions and partitioned fact loaded in 0 ms
+[2025-07-23 19:05:28] completed in 1 m 12 s 581 ms
+
+dwh_dev_pgsql.public> CALL BL_CL.load_bl_dm_full(TRUE)
+PHASE 1: Starting DM dimension loading from 3NF...
+MASTER DIMENSION LOAD SUMMARY:
+Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+Overall Status: SUCCESS, Total Execution Time: 0 ms
+PHASE 1: DM dimension loading completed successfully
+PHASE 3: Starting partitioned fact loading...
+Processing incremental load since: 2025-07-23 17:04:15.49611
+Data date range: 2025-07-23 to 2025-07-23
+Created partition table: FCT_ORDER_LINE_SHIPMENTS_DD_202507 for dates 2025-07-01 to 2025-08-01
+Created missing partition: FCT_ORDER_LINE_SHIPMENTS_DD_202507
+Deleted 0 existing fact records
+Inserted 0 new fact records
+Rolling window cutoff date: 2025-04-01
+[2025-07-23 19:12:26] [01000] Failed to detach partition FCT_ORDER_LINE_SHIPMENTS_DD_202501: relation "FCT_ORDER_LINE_SHIPMENTS_DD_202501" is not a partition of relation "fct_order_line_shipments_dd"
+[2025-07-23 19:12:26] [01000] Failed to detach partition FCT_ORDER_LINE_SHIPMENTS_DD_202502: relation "FCT_ORDER_LINE_SHIPMENTS_DD_202502" is not a partition of relation "fct_order_line_shipments_dd"
+[2025-07-23 19:12:26] [01000] Failed to detach partition FCT_ORDER_LINE_SHIPMENTS_DD_202503: relation "FCT_ORDER_LINE_SHIPMENTS_DD_202503" is not a partition of relation "fct_order_line_shipments_dd"
+FACT LOAD COMPLETED: 0 deleted, 0 inserted, 488896 total business records in 0 ms
+PHASE 3: Partitioned fact loading completed successfully
+COMPLETE DM ETL SUCCESS: All dimensions and partitioned fact loaded in 0 ms
+[2025-07-23 19:12:26] completed in 3 s 128 ms

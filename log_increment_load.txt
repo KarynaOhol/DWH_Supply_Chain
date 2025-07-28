@@ -1,0 +1,124 @@
+[2025-07-28 12:51:05] completed in 167 ms
+dwh_dev_pgsql> CALL BL_CL.DAILY_INCREMENTAL_PIPELINE()
+=== LAYER 1: STAGING AREA LOADING ===
+Loading OMS from file: /var/lib/postgresql/16/main/source_system_1_oms_incremental.csv
+foreign table "ext_oms_80" does not exist, skipping
+Successfully loaded OMS with load_id: 80
+Loading LMS from file: /var/lib/postgresql/16/main/source_system_2_lms_incremental.csv
+foreign table "ext_lms_81" does not exist, skipping
+Successfully loaded LMS with load_id: 81
+LAYER 1 COMPLETED: All staging loads successful
+=== LAYER 2: 3NF LOADING ===
+Calling 3NF INCREMENTAL load procedure
+Loading dimensions incrementally...
+Failed to load states: duplicate key value violates unique constraint "uk_states_src_system"
+Dimension loading completed with some failures. Check logs for details.
+Loading facts incrementally...
+start load CE_ORDERS
+CE_ORDERS loaded
+start load CE_ORDER_LINES
+CE_ORDER_LINES loaded
+start load CE_TRANSACTIONS
+CE_TRANSACTIONS loaded
+start load CE_SHIPMENTS
+CE_SHIPMENTS loaded
+start load CE_SHIPMENT_LINES
+E_SHIPMENT_LINES loaded
+start load CE_DELIVERIES
+CE_DELIVERIES loaded with shipment-level grain: 200962 records
+CE_DELIVERIES loaded
+CE (FACT) LOADING SUCCESS: All 6s CE procedures completed in 0 ms
+INCREMENTAL ETL SUCCESS: Completed in 0 ms
+LAYER 2 COMPLETED: 3NF load successful
+=== LAYER 3: DATA MART LOADING ===
+PHASE 1: Starting DM dimension loading from 3NF...
+PHASE 1: Using DELTA load for dimensions
+MASTER DIMENSION LOAD SUMMARY:
+Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+Overall Status: SUCCESS, Total Execution Time: 0 ms
+PHASE 1: DM dimension loading completed successfully
+PHASE 3: Starting partitioned fact loading...
+Processing incremental load since: 2025-07-28 07:56:35.674203
+Data date range: 2023-06-13 to 2025-07-25
+Deleted 0 existing fact records
+Inserted 22706 new fact records
+Rolling window cutoff date: 2025-04-01
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202501 (date: 2025-01-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202502 (date: 2025-02-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202503 (date: 2025-03-01)
+FIXED FACT LOAD COMPLETED: 0 deleted, 22706 inserted (22060 shipped + 646 unshipped), 466009 total business records in 0 ms
+EXPECTED RESULT: Fact table should have exactly CE_ORDER_LINES count (includes shipped and unshipped order lines)
+PHASE 3: Partitioned fact loading completed successfully
+COMPLETE DM ETL SUCCESS: All dimensions and partitioned fact loaded in 0 ms
+LAYER 3 COMPLETED: DM load successful
+=== MASTER PIPELINE COMPLETED ===
+Overall Status: SUCCESS
+SA Layer: SUCCESS
+3NF Layer: SUCCESS
+DM Layer: SUCCESS
+Total Execution Time: 0 ms
+[2025-07-28 12:52:24] completed in 1 m 15 s 395 ms
+
+--============================================================================
+--IDEMPOTENT LOAD
+--============================================================================
+
+dwh_dev_pgsql.public> CALL BL_CL.DAILY_INCREMENTAL_PIPELINE()
+=== LAYER 1: STAGING AREA LOADING ===
+Loading OMS from file: /var/lib/postgresql/16/main/source_system_1_oms_incremental.csv
+foreign table "ext_oms_82" does not exist, skipping
+Successfully loaded OMS with load_id: 82
+Loading LMS from file: /var/lib/postgresql/16/main/source_system_2_lms_incremental.csv
+foreign table "ext_lms_83" does not exist, skipping
+Successfully loaded LMS with load_id: 83
+LAYER 1 COMPLETED: All staging loads successful
+=== LAYER 2: 3NF LOADING ===
+Calling 3NF INCREMENTAL load procedure
+Loading dimensions incrementally...
+Failed to load states: duplicate key value violates unique constraint "uk_states_src_system"
+Dimension loading completed with some failures. Check logs for details.
+Loading facts incrementally...
+start load CE_ORDERS
+CE_ORDERS loaded
+start load CE_ORDER_LINES
+CE_ORDER_LINES loaded
+start load CE_TRANSACTIONS
+CE_TRANSACTIONS loaded
+start load CE_SHIPMENTS
+CE_SHIPMENTS loaded
+start load CE_SHIPMENT_LINES
+E_SHIPMENT_LINES loaded
+start load CE_DELIVERIES
+CE_DELIVERIES loaded with shipment-level grain: 200962 records
+CE_DELIVERIES loaded
+CE (FACT) LOADING SUCCESS: All 6s CE procedures completed in 0 ms
+INCREMENTAL ETL SUCCESS: Completed in 0 ms
+LAYER 2 COMPLETED: 3NF load successful
+=== LAYER 3: DATA MART LOADING ===
+PHASE 1: Starting DM dimension loading from 3NF...
+PHASE 1: Using DELTA load for dimensions
+MASTER DIMENSION LOAD SUMMARY:
+Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+Overall Status: SUCCESS, Total Execution Time: 0 ms
+PHASE 1: DM dimension loading completed successfully
+PHASE 3: Starting partitioned fact loading...
+Processing incremental load since: 2025-07-28 10:51:08.941256
+Data date range: 2025-07-28 to 2025-07-28
+Deleted 0 existing fact records
+Inserted 0 new fact records
+Rolling window cutoff date: 2025-04-01
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202501 (date: 2025-01-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202502 (date: 2025-02-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202503 (date: 2025-03-01)
+FIXED FACT LOAD COMPLETED: 0 deleted, 0 inserted (0 shipped + 0 unshipped), 466009 total business records in 0 ms
+EXPECTED RESULT: Fact table should have exactly CE_ORDER_LINES count (includes shipped and unshipped order lines)
+PHASE 3: Partitioned fact loading completed successfully
+COMPLETE DM ETL SUCCESS: All dimensions and partitioned fact loaded in 0 ms
+LAYER 3 COMPLETED: DM load successful
+=== MASTER PIPELINE COMPLETED ===
+Overall Status: SUCCESS
+SA Layer: SUCCESS
+3NF Layer: SUCCESS
+DM Layer: SUCCESS
+Total Execution Time: 0 ms
+[2025-07-28 13:02:44] completed in 1 m 6 s 486 ms

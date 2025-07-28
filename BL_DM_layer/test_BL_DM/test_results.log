@@ -1,0 +1,94 @@
+NOTICE:  ===============================================================
+NOTICE:  TESTING FULL LOAD MODE
+NOTICE:  Test Start Time: 2025-07-22 15:06:15.005277
+NOTICE:  ===============================================================
+NOTICE:  ===============================================================
+NOTICE:  SETTING UP CLEAN TEST ENVIRONMENT
+NOTICE:  ===============================================================
+NOTICE:  Starting dimension table cleanup - preserving default records (_id = -1)...
+NOTICE:  DIM_GEOGRAPHIES: 593 records deleted
+NOTICE:  DIM_PRODUCTS: 118 records deleted
+NOTICE:  DIM_CUSTOMERS: 20469 records deleted
+NOTICE:  DIM_SALES_REPRESENTATIVES: 100 records deleted
+NOTICE:  DIM_WAREHOUSES: 5 records deleted
+NOTICE:  DIM_CARRIERS: 4 records deleted
+NOTICE:  DIM_ORDER_STATUSES: 3 records deleted
+NOTICE:  DIM_PAYMENT_METHODS: 4 records deleted
+NOTICE:  DIM_SHIPPING_MODES: 4 records deleted
+NOTICE:  DIM_DELIVERY_STATUSES: 3 records deleted
+NOTICE:  CLEANUP COMPLETE: 21303 total records deleted from all dimension tables
+NOTICE:  All default records (_id = -1) have been preserved.
+NOTICE:  Procedure logs cleared for clean testing.
+NOTICE:  VERIFICATION: Clean State Check
+NOTICE:  DIM_CARRIERS: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_CUSTOMERS: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_DELIVERY_STATUSES: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_GEOGRAPHIES: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_ORDER_STATUSES: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_PAYMENT_METHODS: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_PRODUCTS: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_SALES_REPRESENTATIVES: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_SHIPPING_MODES: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  DIM_WAREHOUSES: Total=1, Default=1, Data=0, Clean=t
+NOTICE:  Clean environment setup complete ✓
+NOTICE:  java.sql.SQLWarning
+NOTICE:  STEP 1: Recording baseline counts...
+NOTICE:  Baseline: 0 total data records across all dimensions
+NOTICE:  java.sql.SQLWarning
+NOTICE:  STEP 2: Executing FULL LOAD...
+NOTICE:  MASTER DIMENSION LOAD SUMMARY:
+NOTICE:  Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+NOTICE:  Overall Status: SUCCESS, Total Execution Time: 0 ms
+NOTICE:  java.sql.SQLWarning
+NOTICE:  STEP 3: Checking full load results...
+NOTICE:  After Full Load: 21303 total data records
+NOTICE:  Records Added: 21303
+NOTICE:  java.sql.SQLWarning
+NOTICE:  STEP 4: Testing FULL LOAD IDEMPOTENCY (using corrected logic)...
+NOTICE:  ==========================================
+NOTICE:  DETAILED MASTER PROCEDURE IDEMPOTENCY TEST: load_all_dm_dimensions
+NOTICE:  ==========================================
+NOTICE:  Step 1: Executing first run of master procedure...
+NOTICE:  MASTER DIMENSION LOAD SUMMARY:
+NOTICE:  Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+NOTICE:  Overall Status: SUCCESS, Total Execution Time: 0 ms
+NOTICE:  Step 2: Executing second run (should be idempotent)...
+NOTICE:  MASTER DIMENSION LOAD SUMMARY:
+NOTICE:  Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+NOTICE:  Overall Status: SUCCESS, Total Execution Time: 0 ms
+NOTICE:  Step 3: Analyzing individual sub-procedure results from second run...
+NOTICE:  INDIVIDUAL SUB-PROCEDURE RESULTS (Second Run Only):
+NOTICE:  load_dim_carriers: 0 records - DIM_CARRIERS load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_delivery_statuses: 0 records - DIM_DELIVERY_STATUSES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_geographies: 0 records - DIM_GEOGRAPHIES load completed using CURSOR FOR LOOP - Mode: FULL, Processed: 593, Inserted: 0, Updated: 0, Warnings: 0, Errors: 0
+NOTICE:  load_dim_order_statuses: 0 records - DIM_ORDER_STATUSES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_payment_methods: 0 records - DIM_PAYMENT_METHODS load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_shipping_modes: 0 records - DIM_SHIPPING_MODES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_warehouses: 0 records - DIM_WAREHOUSES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_customers: 0 records - DIM_CUSTOMERS load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_products_scd: 0 records - DIM_PRODUCTS_SCD load completed with CORRECTED SCD2 - Mode: FULL (INCREMENTAL), Processed: 118, Inserted: 0, Closed: 0, SCD2 Changes: 0
+NOTICE:  load_dim_sales_representatives: 0 records - DIM_SALES_REPRESENTATIVES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_carriers: 0 records - DIM_CARRIERS load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_delivery_statuses: 0 records - DIM_DELIVERY_STATUSES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_geographies: 0 records - DIM_GEOGRAPHIES load completed using CURSOR FOR LOOP - Mode: FULL, Processed: 593, Inserted: 0, Updated: 0, Warnings: 0, Errors: 0
+NOTICE:  load_dim_order_statuses: 0 records - DIM_ORDER_STATUSES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_payment_methods: 0 records - DIM_PAYMENT_METHODS load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_shipping_modes: 0 records - DIM_SHIPPING_MODES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_warehouses: 0 records - DIM_WAREHOUSES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_customers: 0 records - DIM_CUSTOMERS load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  load_dim_products_scd: 0 records - DIM_PRODUCTS_SCD load completed with CORRECTED SCD2 - Mode: FULL (INCREMENTAL), Processed: 118, Inserted: 0, Closed: 0, SCD2 Changes: 0
+NOTICE:  load_dim_sales_representatives: 0 records - DIM_SALES_REPRESENTATIVES load completed - Mode: FULL, Inserted: 0, Updated: 0, Unchanged: 0
+NOTICE:  ==========================================
+NOTICE:  DETAILED IDEMPOTENCY TEST RESULTS:
+NOTICE:  Total data changes: 0
+NOTICE:  Individual procedure changes (second run): 0
+NOTICE:  Test Status: PASSED ✓
+NOTICE:  EXPLANATION: Master procedure IS idempotent ✓
+NOTICE:  No individual sub-procedures made changes on second run.
+NOTICE:  ==========================================
+NOTICE:  java.sql.SQLWarning
+NOTICE:  ===============================================================
+NOTICE:  FULL LOAD MODE TEST COMPLETED
+NOTICE:  Duration: 0.000000 seconds
+NOTICE:  ===============================================================
+CALL

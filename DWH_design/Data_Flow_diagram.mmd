@@ -1,0 +1,139 @@
+graph TD
+    %% External Entities (Squares)
+    OMS[OMS System<br/>External Entity]
+    LMS[LMS System<br/>External Entity]
+
+    %% Raw Data Stores (Open rectangles)
+    DS1[(D1: source_system_1_oms_part_1.csv<br/>Raw Data Store)]
+    DS2[(D2: source_system_2_lms_part_2.csv<br/>Raw Data Store)]
+
+    %% Staging Area Data Stores - SA_OMS Schema
+    SA_OMS1[(D3: SA_OMS.ext_oms<br/>External OMS Store)]
+    SA_OMS2[(D4: SA_OMS.src_oms<br/>Source OMS Store)]
+
+    %% Staging Area Data Stores - SA_LMS Schema
+    SA_LMS1[(D5: SA_LMS.ext_lms<br/>External LMS Store)]
+    SA_LMS2[(D6: SA_LMS.src_lms<br/>Source LMS Store)]
+
+    %% 3NF Data Stores (BL_3NF Schema)
+    NF1[(D7: BL_3NF.CE_CUSTOMERS<br/>Customer_ID, Customer_Src_ID)]
+    NF2[(D8: BL_3NF.CE_PRODUCTS_SCD<br/>Product_ID, Product_Src_ID)]
+    NF3[(D9: BL_3NF.CE_ORDERS<br/>Order_ID, Customer_ID)]
+    NF4[(D10: BL_3NF.CE_ORDER_LINES<br/>Order_Line_ID, Product_ID)]
+    NF5[(D11: BL_3NF.CE_SHIPMENTS<br/>Shipment_ID, Geography_ID)]
+    NF6[(D12: BL_3NF.CE_DELIVERIES<br/>Delivery_ID, Shipment_ID)]
+    NF7[(D13: BL_3NF.CE_GEOGRAPHIES<br/>Geography_ID, City_ID)]
+    NF8[(D14: BL_3NF.CE_Reference_Tables<br/>Brands, Categories, Carriers, etc.)]
+
+    %% Dimensional Model Data Stores (BL_DM Schema)
+    DIM1[(D15: BL_DM.DIM_CUSTOMERS<br/>Customer_Surr_ID)]
+    DIM2[(D16: BL_DM.DIM_PRODUCTS_SCD<br/>Product_Surr_ID)]
+    DIM3[(D17: BL_DM.DIM_GEOGRAPHIES<br/>Geography_Surr_ID)]
+    DIM4[(D18: BL_DM.DIM_SALES_REPRESENTATIVES<br/>Sales_Rep_Surr_ID)]
+    DIM5[(D19: BL_DM.DIM_TIME_DAY<br/>DT_Surr_ID)]
+    DIM6[(D20: BL_DM.DIM_Reference_Dimensions<br/>Carriers, Warehouses, Statuses)]
+    FACT1[(D21: BL_DM.FCT_ORDER_LINE_SHIPMENTS_DD<br/>Sales & Delivery Metrics)]
+
+    %% Processes (Circles)
+    P1((1.0<br/>Extract OMS<br/>CSV Data<br/>Process))
+    P2((2.0<br/>Extract LMS<br/>CSV Data<br/>Process))
+    P3((3.0<br/>Load to<br/>SA_OMS.ext_oms<br/>Process))
+    P4((4.0<br/>Load to<br/>SA_LMS.ext_lms<br/>Process))
+    P5((5.0<br/>Transform to<br/>SA_OMS.src_oms<br/>Process))
+    P6((6.0<br/>Transform to<br/>SA_LMS.src_lms<br/>Process))
+    P7((7.0<br/>Data Quality<br/>& Validation<br/>Process))
+    P8((8.0<br/>Transform to<br/>BL_3NF Schema<br/>SCD Type 1<br/>Process))
+    P8A((8A.0<br/>Load SCD Type 2<br/>CE_PRODUCTS_SCD<br/>Historical Tracking<br/>Process))
+    P9((9.0<br/>Transfer SCD Type 1<br/>Dimensions to DM<br/>Process))
+    P10((10.0<br/>Transfer SCD Type 2<br/>Products to DM<br/>Process))
+    P11((11.0<br/>Load Time<br/>Dimension<br/>Process))
+    P12((12.0<br/>Load Fact Table<br/>FCT_ORDER_LINE_SHIPMENTS_DD<br/>Process))
+
+    %% Data Flows from External Systems
+    OMS -->|Raw OMS Data<br/>Orders, Customers, Products| P1
+    LMS -->|Raw LMS Data<br/>Logistics, Shipments| P2
+
+    P1 -->|Extracted OMS Data| DS1
+    P2 -->|Extracted LMS Data| DS2
+
+    %% Data Flows to External Staging Tables
+    DS1 -->|OMS CSV Data| P3
+    DS2 -->|LMS CSV Data| P4
+
+    P3 -->|Raw OMS Data<br/>Direct CSV Load| SA_OMS1
+    P4 -->|Raw LMS Data<br/>Direct CSV Load| SA_LMS1
+
+    %% Data Flows to Source Staging Tables
+    SA_OMS1 -->|External OMS Data| P5
+    SA_LMS1 -->|External LMS Data| P6
+
+    P5 -->|Cleaned OMS Data<br/>23 columns| SA_OMS2
+    P6 -->|Cleaned LMS Data<br/>Logistics & Delivery| SA_LMS2
+
+    %% Data Quality & Validation
+    SA_OMS2 -->|Source OMS Data| P7
+    SA_LMS2 -->|Source LMS Data| P7
+
+    %% Transform to 3NF
+    P7 -->|Validated OMS Data| P8
+    P7 -->|Validated LMS Data| P8
+    P7 -->|Validated Product Data<br/>for Historical Tracking| P8A
+
+    P8 -->|CE_CUSTOMERS<br/>Customer_ID, Customer_Src_ID| NF1
+    P8 -->|CE_ORDERS<br/>Order_ID, Customer_ID| NF3
+    P8 -->|CE_ORDER_LINES<br/>Order_Line_ID, Product_ID| NF4
+    P8 -->|CE_SHIPMENTS<br/>Shipment_ID, Geography_ID| NF5
+    P8 -->|CE_DELIVERIES<br/>Delivery_ID, Shipment_ID| NF6
+    P8 -->|CE_GEOGRAPHIES<br/>Geography_ID, City_ID| NF7
+    P8 -->|CE_BRANDS, CE_CATEGORIES<br/>CE_CARRIERS, CE_WAREHOUSES| NF8
+
+    P8A -->|CE_PRODUCTS_SCD<br/>Product_ID, Start_DT, End_DT<br/>SCD Type 2 Implementation| NF2
+
+    %% Transfer Dimensions to DM (Simple Copy Operations)
+    NF1 -->|Customer Data<br/>Customer_Src_ID| P9
+    NF7 -->|Geography Data<br/>Geography_Src_ID| P9
+    NF8 -->|Reference Data<br/>Sales_Rep, Carrier, etc.| P9
+
+    P9 -->|Transfer to DIM_CUSTOMERS<br/>Customer_Surr_ID| DIM1
+    P9 -->|Transfer to DIM_GEOGRAPHIES<br/>Geography_Surr_ID| DIM3
+    P9 -->|Transfer to DIM_SALES_REPRESENTATIVES<br/>Sales_Rep_Surr_ID| DIM4
+    P9 -->|Transfer to DIM_CARRIERS, DIM_WAREHOUSES<br/>DIM_ORDER_STATUSES, etc.| DIM6
+
+    %% Transfer SCD Type 2 Products to DM (Simple Copy)
+    NF2 -->|Product Data with History<br/>Product_Src_ID, Start_DT, End_DT| P10
+    P10 -->|Transfer to DIM_PRODUCTS_SCD<br/>Product_Surr_ID, Start_DT, End_DT| DIM2
+
+    %% Load Time Dimension
+    P11 -->|DIM_TIME_DAY<br/>DT_Surr_ID, Calendar_DT| DIM5
+
+    %% Load Fact Table
+    NF3 -->|Order Data<br/>Order_ID, Order_Date| P12
+    NF4 -->|Order Line Data<br/>Quantity, Unit_Price, Line_Total| P12
+    NF5 -->|Shipment Data<br/>Ship_Date, Shipping_Cost| P12
+    NF6 -->|Delivery Data<br/>Delivery_Date, Delivery_Days| P12
+
+    DIM1 -->|Customer_Surr_ID| P12
+    DIM2 -->|Product_Surr_ID| P12
+    DIM3 -->|Geography_Surr_ID| P12
+    DIM4 -->|Sales_Rep_Surr_ID| P12
+    DIM5 -->|Date Surr_IDs<br/>Order_DT, Ship_DT, Delivery_DT| P12
+    DIM6 -->|Reference Surr_IDs<br/>Carrier, Warehouse, Status| P12
+
+    P12 -->|FCT_ORDER_LINE_SHIPMENTS_DD<br/>Sales Metrics: Unit_Price_Act, Line_Total_Act<br/>Shipment Metrics: Shipped_Quantity_Cnt<br/>Delivery Metrics: Delivery_Days_Cnt| FACT1
+
+    %% Styling
+    classDef external fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    classDef process fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef datastore fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef staging_ext fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef staging_src fill:#c8e6c9,stroke:#1b5e20,stroke-width:2px
+    classDef normalized fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef dimensional fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+
+    class OMS,LMS external
+    class P1,P2,P3,P4,P5,P6,P7,P8,P8A,P9,P10,P11,P12 process
+    class DS1,DS2 datastore
+    class SA_OMS1,SA_LMS1 staging_ext
+    class SA_OMS2,SA_LMS2 staging_src
+    class NF1,NF2,NF3,NF4,NF5,NF6,NF7,NF8 normalized
+    class DIM1,DIM2,DIM3,DIM4,DIM5,DIM6,FACT1 dimensional

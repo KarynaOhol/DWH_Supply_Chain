@@ -1,0 +1,184 @@
+dwh_dev_pgsql.public> CALL BL_CL.FULL_PIPELINE_REFRESH()
+=== LAYER 1: STAGING AREA LOADING ===
+Loading OMS from file: /var/lib/postgresql/16/main/source_system_1_oms_full.csv
+foreign table "ext_oms_52" does not exist, skipping
+Successfully loaded OMS with load_id: 52
+Loading LMS from file: /var/lib/postgresql/16/main/source_system_2_lms_full.csv
+foreign table "ext_lms_53" does not exist, skipping
+Successfully loaded LMS with load_id: 53
+LAYER 1 COMPLETED: All staging loads successful
+=== LAYER 2: 3NF LOADING ===
+Calling 3NF FULL load procedure
+PHASE 1: Starting dimension loading...
+PHASE 1: Dimension loading completed successfully
+PHASE 2: Starting fact loading...
+start load CE_ORDERS
+CE_ORDERS loaded
+start load CE_ORDER_LINES
+CE_ORDER_LINES loaded
+start load CE_TRANSACTIONS
+CE_TRANSACTIONS loaded
+start load CE_SHIPMENTS
+CE_SHIPMENTS loaded
+start load CE_SHIPMENT_LINES
+E_SHIPMENT_LINES loaded
+start load CE_DELIVERIES
+CE_DELIVERIES loaded with shipment-level grain: 187449 records
+CE_DELIVERIES loaded
+CE (FACT) LOADING SUCCESS: All 6s CE procedures completed in 0 ms
+PHASE 2: Fact loading completed successfully
+COMPLETE ETL SUCCESS: All 20 dimensions + 6 facts loaded successfully in 0 ms
+LAYER 2 COMPLETED: 3NF load successful
+=== LAYER 3: DATA MART LOADING ===
+PHASE 1: Starting DM dimension loading from 3NF...
+PHASE 1: Using FULL load for dimensions
+MASTER DIMENSION LOAD SUMMARY:
+Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+Overall Status: SUCCESS, Total Execution Time: 0 ms
+PHASE 1: DM dimension loading completed successfully
+PHASE 2: Setting up historical partitions...
+Creating partitions for partitioned table...
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202301 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202301) already exists and is attached, skipping creation
+Created historical partition for 2023-01
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202302 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202302) already exists and is attached, skipping creation
+Created historical partition for 2023-02
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202303 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202303) already exists and is attached, skipping creation
+Created historical partition for 2023-03
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202304 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202304) already exists and is attached, skipping creation
+Created historical partition for 2023-04
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202305 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202305) already exists and is attached, skipping creation
+Created historical partition for 2023-05
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202306 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202306) already exists and is attached, skipping creation
+Created historical partition for 2023-06
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202307 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202307) already exists and is attached, skipping creation
+Created historical partition for 2023-07
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202308 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202308) already exists and is attached, skipping creation
+Created historical partition for 2023-08
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202309 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202309) already exists and is attached, skipping creation
+Created historical partition for 2023-09
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202310 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202310) already exists and is attached, skipping creation
+Created historical partition for 2023-10
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202311 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202311) already exists and is attached, skipping creation
+Created historical partition for 2023-11
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202312 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202312) already exists and is attached, skipping creation
+Created historical partition for 2023-12
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202401 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202401) already exists and is attached, skipping creation
+Created historical partition for 2024-01
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202402 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202402) already exists and is attached, skipping creation
+Created historical partition for 2024-02
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202403 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202403) already exists and is attached, skipping creation
+Created historical partition for 2024-03
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202404 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202404) already exists and is attached, skipping creation
+Created historical partition for 2024-04
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202405 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202405) already exists and is attached, skipping creation
+Created historical partition for 2024-05
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202406 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202406) already exists and is attached, skipping creation
+Created historical partition for 2024-06
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202407 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202407) already exists and is attached, skipping creation
+Created historical partition for 2024-07
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202408 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202408) already exists and is attached, skipping creation
+Created historical partition for 2024-08
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202409 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202409) already exists and is attached, skipping creation
+Created historical partition for 2024-09
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202410 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202410) already exists and is attached, skipping creation
+Created historical partition for 2024-10
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202411 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202411) already exists and is attached, skipping creation
+Created historical partition for 2024-11
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202412 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202412) already exists and is attached, skipping creation
+Created historical partition for 2024-12
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202501 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202501) already exists and is attached, skipping creation
+Created historical partition for 2025-01
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202502 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202502) already exists and is attached, skipping creation
+Created historical partition for 2025-02
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202503 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202503) already exists and is attached, skipping creation
+Created historical partition for 2025-03
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202504 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202504) already exists and is attached, skipping creation
+Created historical partition for 2025-04
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202505 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202505) already exists and is attached, skipping creation
+Created historical partition for 2025-05
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202506 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202506) already exists and is attached, skipping creation
+Created historical partition for 2025-06
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202507 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202507) already exists and is attached, skipping creation
+Created historical partition for 2025-07
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202508 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202508) already exists and is attached, skipping creation
+Created historical partition for 2025-08
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202509 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202509) already exists and is attached, skipping creation
+Created historical partition for 2025-09
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202510 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202510) already exists and is attached, skipping creation
+Created historical partition for 2025-10
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202511 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202511) already exists and is attached, skipping creation
+Created historical partition for 2025-11
+Partition FCT_ORDER_LINE_SHIPMENTS_DD_202512 (actual name: FCT_ORDER_LINE_SHIPMENTS_DD_202512) already exists and is attached, skipping creation
+Created historical partition for 2025-12
+PHASE 2: Historical partitions setup completed
+PHASE 3: Starting partitioned fact loading...
+Processing full reload of all data
+Data date range: 2023-06-13 to 2025-06-11
+Deleted 0 existing fact records
+Inserted 443303 new fact records
+FACT LOAD COMPLETED: 0 deleted, 443303 inserted, 443303 total business records in 0 ms
+EXPECTED RESULT: Fact table should have exactly 443,303 rows (matching CE_SHIPMENT_LINES)
+PHASE 3: Partitioned fact loading completed successfully
+COMPLETE DM ETL SUCCESS: All dimensions and partitioned fact loaded in 0 ms
+LAYER 3 COMPLETED: DM load successful
+=== MASTER PIPELINE COMPLETED ===
+Overall Status: SUCCESS
+SA Layer: SUCCESS
+3NF Layer: SUCCESS
+DM Layer: SUCCESS
+Total Execution Time: 0 ms
+[2025-07-27 12:29:37] completed in 2 m 8 s 681 ms
+
+--============================================================================
+--IDEMPOTENT LOAD
+--============================================================================
+dwh_dev_pgsql.public> CALL BL_CL.ANALYTICAL_LAYERS_PIPELINE('INCREMENTAL')
+LAYER 1 SKIPPED: SA layer not requested
+=== LAYER 2: 3NF LOADING ===
+Calling 3NF INCREMENTAL load procedure
+Loading dimensions incrementally...
+Loading facts incrementally...
+start load CE_ORDERS
+CE_ORDERS loaded
+start load CE_ORDER_LINES
+CE_ORDER_LINES loaded
+start load CE_TRANSACTIONS
+CE_TRANSACTIONS loaded
+start load CE_SHIPMENTS
+CE_SHIPMENTS loaded
+start load CE_SHIPMENT_LINES
+E_SHIPMENT_LINES loaded
+start load CE_DELIVERIES
+CE_DELIVERIES loaded with shipment-level grain: 187449 records
+CE_DELIVERIES loaded
+CE (FACT) LOADING SUCCESS: All 6s CE procedures completed in 0 ms
+INCREMENTAL ETL SUCCESS: Completed in 0 ms
+LAYER 2 COMPLETED: 3NF load successful
+=== LAYER 3: DATA MART LOADING ===
+PHASE 1: Starting DM dimension loading from 3NF...
+PHASE 1: Using DELTA load for dimensions
+MASTER DIMENSION LOAD SUMMARY:
+Total Dimensions: 10, Successful: 10, Failed: 0, Skipped: 0
+Overall Status: SUCCESS, Total Execution Time: 0 ms
+PHASE 1: DM dimension loading completed successfully
+PHASE 3: Starting partitioned fact loading...
+Processing incremental load since: 2025-07-27 10:27:28.641283
+Data date range: 2025-07-27 to 2025-07-27
+Deleted 0 existing fact records
+Inserted 0 new fact records
+Rolling window cutoff date: 2025-04-01
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202501 (date: 2025-01-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202502 (date: 2025-02-01)
+Detached partition: FCT_ORDER_LINE_SHIPMENTS_DD_202503 (date: 2025-03-01)
+FACT LOAD COMPLETED: 0 deleted, 0 inserted, 443303 total business records in 0 ms
+EXPECTED RESULT: Fact table should have exactly 443,303 rows (matching CE_SHIPMENT_LINES)
+PHASE 3: Partitioned fact loading completed successfully
+COMPLETE DM ETL SUCCESS: All dimensions and partitioned fact loaded in 0 ms
+LAYER 3 COMPLETED: DM load successful
+=== MASTER PIPELINE COMPLETED ===
+Overall Status: SUCCESS
+SA Layer: SKIPPED
+3NF Layer: SUCCESS
+DM Layer: SUCCESS
+Total Execution Time: 0 ms
+[2025-07-27 12:36:35] completed in 49 s 410 ms
